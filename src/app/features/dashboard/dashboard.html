@@ -1,0 +1,36 @@
+<div class="login-wrapper">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Logowanie do ERP</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Wpisz swój login">
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-error *ngIf="loginForm.get('email')?.invalid">Wpisz poprawny email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+        
+        <button mat-icon-button matSuffix (click)="hide = !hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-checkbox>Zapamiętaj dane</mat-checkbox>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="full-width" type="submit">ZALOGUJ</button>
+    </mat-card-actions>
+
+    </form>
+
+  </mat-card>
+</div>
