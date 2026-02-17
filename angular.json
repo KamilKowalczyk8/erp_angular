@@ -71,7 +71,8 @@
               "buildTarget": "erp-frontend:build:production"
             },
             "development": {
-              "buildTarget": "erp-frontend:build:development"
+              "buildTarget": "erp-frontend:build:development",
+              "hmr": true
             }
           },
           "defaultConfiguration": "development"

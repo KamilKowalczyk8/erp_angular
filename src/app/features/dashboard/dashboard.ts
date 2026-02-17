@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Auth } from '../../core/services/auth';
+import { AuthService } from '../../core/services/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +15,7 @@ export class Dashboard {
 
   constructor(
     private fb: FormBuilder,
-    private auth: Auth,
+    private authService: AuthService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -28,10 +28,11 @@ export class Dashboard {
     if (this.loginForm.valid) {
       console.log('Wysyłam do Javy:', this.loginForm.value);
 
-      this.auth.login(this.loginForm.value).subscribe({
+      this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('Backend odpowiedział sukcesem!', response);
-          this.router.navigate(['/magazyn']);
+          localStorage.setItem('token', response);
+          this.router.navigate(['/inventory']);
         },
         error: (err) => {
           console.error('Błąd logowania:', err);
