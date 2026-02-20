@@ -10,13 +10,19 @@ import { MainLayout } from './features/main-layout/main-layout';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Inventory } from './features/inventory/inventory';
+import { Clients } from './features/clients/clients';
+import { Sales } from './features/sales/sales';
+import { Desktop } from './features/desktop/desktop';
 
 @NgModule({
   declarations: [
     App,
     Dashboard,
     MainLayout,
-    Inventory
+    Inventory,
+    Clients,
+    Sales,
+    Desktop
   ],
   imports: [
     BrowserModule,

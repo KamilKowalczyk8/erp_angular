@@ -1,6 +1,10 @@
+$white-color: #f5f7fa;
+$blue-link-icon: #3f51b5;
+
+
 .erp-container {
   height: 100vh;
-  background-color: #f5f7fa; 
+  background-color: $white-color; 
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -9,7 +13,7 @@
 
 .erp-sidenav {
   width: 250px;
-  background-color: white;
+  background-color: $white-color;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 
   .logo-box {
@@ -19,7 +23,7 @@
     padding-left: 16px;
     font-size: 20px;
     font-weight: bold;
-    color: #3f51b5; 
+    color: $blue-link-icon; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
     
     mat-icon {
@@ -31,17 +35,14 @@
   }
 }
 
-mat-sidenav {
-  width: 250px;
-}
 
 .active-link {
   background-color: rgba(63, 81, 181, 0.1) !important; 
-  color: #3f51b5 !important; 
-  border-right: 3px solid #3f51b5; 
+  color: $blue-link-icon !important; 
+  border-right: 3px solid $blue-link-icon; 
   
   mat-icon {
-    color: #3f51b5;
+    color: $blue-link-icon;
   }
 }
 

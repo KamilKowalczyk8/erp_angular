@@ -31,7 +31,6 @@ export class Dashboard {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('Backend odpowiedział sukcesem!', response);
-          localStorage.setItem('token', response);
           this.router.navigate(['/inventory']);
         },
         error: (err) => {
