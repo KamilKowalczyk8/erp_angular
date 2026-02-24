@@ -13,3 +13,10 @@ export interface Page<T> {
     size: number;
     number: number;
 }
+
+export interface CreateProductRequest {
+    name: string;
+    price: number;
+    stockQuantity: number;
+    skuCode: string;
+}

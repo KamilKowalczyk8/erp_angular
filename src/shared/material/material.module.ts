@@ -9,8 +9,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 const MaterialComponents = [
+  MatDialogModule,
+  FormsModule,
+  ReactiveFormsModule,
   MatToolbarModule,
   MatButtonModule,
   MatTableModule,

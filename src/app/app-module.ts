@@ -13,6 +13,7 @@ import { Inventory } from './features/inventory/inventory';
 import { Clients } from './features/clients/clients';
 import { Sales } from './features/sales/sales';
 import { Desktop } from './features/desktop/desktop';
+import { AddProductDialog } from './features/inventory/add-product-dialog/add-product-dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Desktop } from './features/desktop/desktop';
     Inventory,
     Clients,
     Sales,
-    Desktop
+    Desktop,
+    AddProductDialog
   ],
   imports: [
     BrowserModule,
