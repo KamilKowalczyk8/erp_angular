@@ -1,6 +1,11 @@
 <div class="inventory-container">
     <div class="header-section">
         <h1>Magazyn Produktów</h1>
+
+        <button mat-raised-button color="primary"(click)="openAddProductDialog()">
+            <mat-icon>add</mat-icon>
+            Dodaj Produkt
+        </button>
     </div>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -23,9 +28,26 @@
         <ng-container matColumnDef="stockQuantity">
             <th mat-header-cell *matHeaderCellDef> Ilość </th>
             <td mat-cell *matCellDef="let element">
+
                 <span [class.low-stock]="element.stockQuantity < 10">
                     {{element.stockQuantity}} szt.
                 </span>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <div class="actions-container">
+                
+                    <button mat-mini-fab color="accent" (click)="changeStock(element)" matTooltip="Zmień stan magazynowy">
+                        <mat-icon class="edit">edit</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="warn" (click)="deleteProduct(element)" matTooltip="Usuń produkt">
+                        <mat-icon class="delete">delete</mat-icon>
+                    </button>
+                </div>
             </td>
         </ng-container>
 

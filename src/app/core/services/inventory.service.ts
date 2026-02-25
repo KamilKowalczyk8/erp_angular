@@ -35,4 +35,19 @@ export class InventoryService {
       { withCredentials: true }
     );
   }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(
+        `${this.apiUrl}/${id}`,
+        { withCredentials: true }
+    );
+  }
+
+  updateProduct(id: number, product: CreateProductRequest): Observable<Product> {
+    return this.http.put<Product>(
+        `${this.apiUrl}/${id}`,
+        product,
+        { withCredentials: true }
+    );
+  }
 }

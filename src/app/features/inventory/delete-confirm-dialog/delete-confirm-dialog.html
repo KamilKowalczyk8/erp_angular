@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Potwierdzenie usunięcia</h2>
+
+<mat-dialog-content>
+  <p>Czy na pewno chcesz trwale usunąć produkt:</p>
+  <p style="font-weight: bold; font-size: 1.1em;">{{ data.productName }}</p>
+  <p style="color: gray; font-size: 0.9em;">Tej operacji nie można cofnąć.</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Anuluj</button>
+  
+  <button mat-raised-button color="warn" (click)="onConfirm()">
+    <mat-icon>delete</mat-icon>
+    Usuń Produkt
+  </button>
+</mat-dialog-actions>

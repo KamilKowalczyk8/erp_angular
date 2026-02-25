@@ -14,6 +14,7 @@ import { Clients } from './features/clients/clients';
 import { Sales } from './features/sales/sales';
 import { Desktop } from './features/desktop/desktop';
 import { AddProductDialog } from './features/inventory/add-product-dialog/add-product-dialog';
+import { DeleteConfirmDialog } from './features/inventory/delete-confirm-dialog/delete-confirm-dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddProductDialog } from './features/inventory/add-product-dialog/add-pr
     Clients,
     Sales,
     Desktop,
-    AddProductDialog
+    AddProductDialog,
+    DeleteConfirmDialog
   ],
   imports: [
     BrowserModule,
