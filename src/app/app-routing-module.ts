@@ -7,11 +7,17 @@ import { Clients } from './features/clients/clients';
 import { AuthGuard } from './core/guards/auth.guard';
 import { Sales } from './features/sales/sales';
 import { Desktop } from './features/desktop/desktop';
+import { Register } from './features/register/register';
 
 const routes: Routes = [
  { 
     path: 'login',
     component: Dashboard 
+  },
+
+  { 
+    path: 'register',
+    component: Register 
   },
 
   { 
