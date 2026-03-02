@@ -16,6 +16,7 @@ import { Desktop } from './features/desktop/desktop';
 import { AddProductDialog } from './features/inventory/add-product-dialog/add-product-dialog';
 import { DeleteConfirmDialog } from './features/inventory/delete-confirm-dialog/delete-confirm-dialog';
 import { Register } from './features/register/register';
+import { Storefront } from './features/client/storefront/storefront';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { Register } from './features/register/register';
     Desktop,
     AddProductDialog,
     DeleteConfirmDialog,
-    Register
+    Register,
+    Storefront
   ],
   imports: [
     BrowserModule,

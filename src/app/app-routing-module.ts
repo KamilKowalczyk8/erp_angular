@@ -8,9 +8,12 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { Sales } from './features/sales/sales';
 import { Desktop } from './features/desktop/desktop';
 import { Register } from './features/register/register';
+import { Storefront } from './features/client/storefront/storefront';
 
 const routes: Routes = [
- { 
+
+  //Strefa - Publiczna
+  { 
     path: 'login',
     component: Dashboard 
   },
@@ -20,6 +23,14 @@ const routes: Routes = [
     component: Register 
   },
 
+  //Strefa - Klienta
+  {
+    path: 'client/shop',
+    component: Storefront
+  },
+
+
+  //Strefa - Pracownik
   { 
     path: '', 
     component: MainLayout,
