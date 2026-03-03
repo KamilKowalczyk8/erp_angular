@@ -4,10 +4,23 @@
   margin: 0 auto;
 }
 
-.page-title {
-  margin-bottom: 30px;
-  color: #333;
-  font-weight: 500;
+.store-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0; 
+
+  .page-title {
+    margin-bottom: 0; 
+    color: #333;
+  }
+
+  .cart-button {
+    transform: scale(1.3); 
+    margin-right: 16px;
+  }
 }
 
 

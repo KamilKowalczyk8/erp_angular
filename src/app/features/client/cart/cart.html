@@ -1,0 +1,39 @@
+<div class="cart-container">
+  <h2 class="page-title">Twój koszyk</h2>
+
+  <mat-card class="empty-cart-card" *ngIf="cartItems.length === 0">
+    <mat-icon class="empty-icon">shopping_cart</mat-icon>
+    <p>Koszyk jest pusty.</p>
+    <button mat-raised-button color="primary" routerLink="/client/shop">Wróć do sklepu</button>
+  </mat-card>
+
+  <div *ngIf="cartItems.length > 0">
+    
+    <mat-card class="cart-item-card" *ngFor="let item of cartItems">
+      <div class="item-details">
+        <span class="item-name">{{ item.product.name }}</span>
+        <span class="item-sku">SKU: {{ item.product.skuCode }}</span>
+      </div>
+      
+      <div class="item-price-qty">
+        <span class="qty">Ilość: {{ item.quantity }} szt.</span>
+        <span class="price">{{ (item.product.price * item.quantity) | currency:'PLN':'symbol':'1.2-2' }}</span>
+      </div>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <div class="summary-total">
+        <span>Suma do zapłaty:</span>
+        <span class="total-price">{{ totalPrice | currency:'PLN':'symbol':'1.2-2' }}</span>
+      </div>
+      
+      <mat-card-actions align="end">
+        <button mat-button color="warn" (click)="onClearCart()">Wyczyść koszyk</button>
+        <button mat-raised-button color="primary" class="checkout-btn" (click)="checkout()">
+          ZŁÓŻ ZAMÓWIENIE
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

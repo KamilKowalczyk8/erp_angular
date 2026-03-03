@@ -17,6 +17,8 @@ import { AddProductDialog } from './features/inventory/add-product-dialog/add-pr
 import { DeleteConfirmDialog } from './features/inventory/delete-confirm-dialog/delete-confirm-dialog';
 import { Register } from './features/register/register';
 import { Storefront } from './features/client/storefront/storefront';
+import { Cart } from './features/client/cart/cart';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import { Storefront } from './features/client/storefront/storefront';
     AddProductDialog,
     DeleteConfirmDialog,
     Register,
-    Storefront
+    Storefront,
+    Cart
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatBadgeModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

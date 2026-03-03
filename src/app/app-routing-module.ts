@@ -9,6 +9,7 @@ import { Sales } from './features/sales/sales';
 import { Desktop } from './features/desktop/desktop';
 import { Register } from './features/register/register';
 import { Storefront } from './features/client/storefront/storefront';
+import { Cart } from './features/client/cart/cart';
 
 const routes: Routes = [
 
@@ -28,6 +29,11 @@ const routes: Routes = [
     path: 'client/shop',
     component: Storefront
   },
+
+  {
+    path: 'client/cart',
+    component: Cart
+  },  
 
 
   //Strefa - Pracownik

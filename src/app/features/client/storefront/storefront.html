@@ -1,29 +1,48 @@
 <div class="storefront-container">
-  <h2 class="page-title">Witaj w sklepie! Poznaj nasze produkty</h2>
+
+  <div class="store-header">
+    <h2 class="page-title">Witaj w naszej hurtowni! Poznaj nasze produkty</h2>
+
+    <button mat-icon-button color="primary" routerLink="/client/cart" class="cart-button" matTooltip="Przejdź do koszyka">
+      
+      <mat-icon 
+        [matBadge]="cartItemCount" 
+        matBadgeColor="warn" 
+        [matBadgeHidden]="cartItemCount === 0">
+        shopping_cart
+      </mat-icon>
+      
+    </button>
+  </div>
 
   <div class="product-grid">
-    <mat-card class="product-card" *ngFor="let product of products">
-      
-      <mat-card-header>
-        <mat-card-title>{{ product.name }}</mat-card-title>
-        <mat-card-subtitle>Ilość na magazynie: {{ product.stockQuantity}} szt.</mat-card-subtitle>
-      </mat-card-header>
+    @for (product of products; track product.id) {
+      <mat-card class="product-card">
+        
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+          <mat-card-subtitle>Ilość na magazynie: {{ product.stockQuantity}} szt.</mat-card-subtitle>
+        </mat-card-header>
 
-      <mat-card-content>
-        <div class="price">{{ product.price | currency:'PLN ':'symbol':'1.2-2' }}</div>        
-        <p class="description">
-            Kod produktu (SKU): {{ product.skuCode }}        </p>
-      </mat-card-content>
+        <mat-card-content>
+          <div class="price">{{ product.price | currency:'PLN':'symbol':'1.2-2' }}</div>        
+          <p class="description">
+              Kod produktu (SKU): {{ product.skuCode }}        
+          </p>
+        </mat-card-content>
 
-      <mat-card-actions align="end">
-        <button mat-raised-button color="primary" 
-                (click)="addToCart(product)"
-                [disabled]="product.stockQuantity <= 0">
-          <mat-icon>add_shopping_cart</mat-icon>
-          {{ product.stockQuantity > 0 ? 'Do koszyka' : 'Brak towaru' }}
-        </button>
-      </mat-card-actions>
-      
-    </mat-card>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" 
+                  (click)="addToCart(product)"
+                  [disabled]="product.stockQuantity <= 0">
+            <mat-icon>add_shopping_cart</mat-icon>
+            {{ product.stockQuantity > 0 ? 'Do koszyka' : 'Brak towaru' }}
+          </button>
+        </mat-card-actions>
+        
+      </mat-card>
+    } @empty {
+      <p style="text-align: center; color: gray;">Ładowanie produktów lub brak towaru...</p>
+    }
   </div>
 </div>
