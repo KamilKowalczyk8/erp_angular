@@ -1,3 +1,9 @@
+<div class="back-button">
+        <button mat-icon-button color="primary" routerLink="/client/shop"  matTooltip="Powrót do sklepu">
+             <mat-icon>keyboard_return</mat-icon>
+        </button>
+</div>
+
 <div class="cart-container">
   <h2 class="page-title">Twój koszyk</h2>
 
@@ -28,8 +34,8 @@
       </div>
       
       <mat-card-actions align="end">
-        <button mat-button color="warn" (click)="onClearCart()">Wyczyść koszyk</button>
-        <button mat-raised-button color="primary" class="checkout-btn" (click)="checkout()">
+        <button mat-button color="warn" class="checkout-clear-btn" (click)="onClearCart()">Wyczyść koszyk</button>
+        <button mat-raised-button color="primary" class="checkout-clear-btn" (click)="checkout()">
           ZŁÓŻ ZAMÓWIENIE
         </button>
       </mat-card-actions>

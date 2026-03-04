@@ -9,6 +9,16 @@
   color: #333;
 }
 
+.back-button {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 25px;
+    margin-top: 20px;
+    button {
+        transform: scale(2.5);
+    }
+}
+
 .empty-cart-card {
   display: flex;
   flex-direction: column;
@@ -34,7 +44,8 @@
 .cart-item-card {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
+  max-width: 800px;
   padding: 16px 24px;
   margin-bottom: 16px;
 
@@ -92,8 +103,9 @@
     }
   }
 
-  .checkout-btn {
+  .checkout-clear-btn {
     padding: 8px 32px;
     font-size: 1.1rem;
+    margin-left: 30px;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartItem } from '../../../core/services/cart';
-
+import { CreateOrderDto, CreateOrderItemDto } from '../../../core/models/order.model';
+import { OrderService } from '../../../core/services/order';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,10 @@ export class Cart implements OnInit{
   cartItems: CartItem[] = [];
   totalPrice: number = 0;
 
-  constructor(private cart: CartService) {}
+  constructor(
+    private cart: CartService,
+    private orderService: OrderService
+  ) {}
 
   ngOnInit(): void {
     this.cart.cart$.subscribe({
@@ -35,9 +39,32 @@ export class Cart implements OnInit{
       return;
     }
 
-    console.log('Rozpoczynam proces składania zamówienia...');
-    alert(`Zamówienie złożone! Do zapłaty: ${this.totalPrice} PLN`);
-    this.cart.clearCart();
+    console.log('Przygotowuję paczkę danych dla Spring Boota...');
+
+    const itemsForBackend: CreateOrderItemDto[] = this.cartItems.map(item => ({
+      productId: item.product.id,
+      quantity: item.quantity
+    }));
+
+    const orderPayload: CreateOrderDto = {
+      items: itemsForBackend
+    }
+
+    this.orderService.placeOrder(orderPayload).subscribe({
+      next: (orderId) => {
+        console.log('Sukces! ID zamówienia z bazy to:', orderId);
+        alert(`Udało się! Twoje zamówienie (Numer: ${orderId}) zostało przyjęte do realizacji.`);
+        
+        this.cart.clearCart();
+      },
+      error: (err) => {
+        if (err.status === 401 || err.status === 403) {
+          alert('Sesja wygasła. Zaloguj się ponownie, aby złożyć zamówienie.');
+        } else {
+          alert('Przepraszamy, coś poszło nie tak po stronie serwera. Spróbuj ponownie za chwilę.');
+        }
+      }
+    })
   }
 
 

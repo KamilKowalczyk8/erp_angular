@@ -25,7 +25,7 @@ export class Storefront implements OnInit {
     this.loadProducts();
 
     this.cart.cart$.subscribe(items => {
-      this.cartItemCount = items.reduce((total, item) => item.quantity, 0)
+      this.cartItemCount = items.reduce((total, item) => total + item.quantity, 0)
     })
   }
 
